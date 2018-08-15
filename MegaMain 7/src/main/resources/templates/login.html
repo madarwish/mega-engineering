@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<head>
+<base href="/">
+<link rel="stylesheet" href="/assets/icons/style.css">
+<link rel="stylesheet" href="/assets/fonts/fonts.css">
+
+<!-- LTR -->
+<link rel="stylesheet" href="/assets/bootstrap/css/bootstrap.min.css">
+<link rel="stylesheet" href="/assets/styles.css">
+<!-- RTL -->
+<!-- <link rel="stylesheet" href="/assets/bootstrap/css/bootstrap-rtl.min.css">
+  <link rel="stylesheet" type="text/css" href="/assets/styles-rtl.css"> -->
+  
+</head>
+<body>
+	<div class="header">
+		<div class="top-nav">
+			<div class="container-fluid">
+				<ul class="nav navbar-nav navbar-right">
+				</ul>
+			</div>
+		</div>
+		<nav class="navbar">
+			<div class="container-fluid">
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle collapsed"
+						data-toggle="collapse" data-target="#headerNav"
+						aria-expanded="false">
+						<span class="sr-only">Toggle navigation</span> <span
+							class="icon-bar"></span> <span class="icon-bar"></span> <span
+							class="icon-bar"></span>
+					</button>
+					<a href="/"> <img src="/assets/images/logo.png" alt="" />
+					</a>
+				</div>
+
+				<div class="collapse navbar-collapse" id="headerNav">
+					<ul class="nav navbar-nav navbar-right">
+					</ul>
+				</div>
+			</div>
+		</nav>
+	</div>
+
+	<div class="login-Container text-center">
+		<div class="login-Card">
+			<div th:if="${param.error}">Invalid username and password.</div>
+			<div th:if="${param.logout}">You have been logged out.</div>
+			<form th:action="@{/login}" method="post" class="form-signin">
+				<h1 class="h3 font-weight-normal">Sign in</h1>
+				<div class="form-group">
+					<label for="inputEmail">Email address</label> <input
+						name="username" type="email" id="inputEmail" class="form-control"
+						placeholder="Email" />
+				</div>
+				<div class="form-group">
+					<label for="inputPassword">Password</label> <input name="password"
+						type="password" id="inputPassword" class="form-control"
+						placeholder="Password" />
+				</div>
+
+				<input class="btn btn-primary btn-block" type="submit"
+					value="Sign In" />
+			</form>
+		</div>
+	</div>
+</body>
+
+<footer class="text-center">
+	<div class="container">
+
+		<div class="social">
+			<ul>
+				<li><a href="javascript:void(0)"> <i class="icon-facebook"></i>
+				</a></li>
+				<li><a href="javascript:void(0)"> <i class="icon-twitter"></i>
+				</a></li>
+				<li><a href="javascript:void(0)"> <i class="icon-insta"></i>
+				</a></li>
+			</ul>
+		</div>
+		<div class="copyright">
+			©2018 <span href="/">Mega Engineering</span> All rights reserved
+		</div>
+	</div>
+</footer>
+
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<script type="text/javascript">
+	function changeCSS(cssFile, cssLinkIndex) {
+
+		var oldlink = document.getElementsByTagName("link").item(cssLinkIndex);
+
+		var newlink = document.createElement("link");
+		newlink.setAttribute("rel", "stylesheet");
+		newlink.setAttribute("type", "text/css");
+		newlink.setAttribute("href", cssFile);
+
+		document.getElementsByTagName("head").item(0).replaceChild(newlink,
+				oldlink);
+	}
+</script>
+<head>
+<title>Mega Engineering</title>
+<base href="/">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="/assets/icons/style.css">
+<link rel="stylesheet" href="/assets/fonts/fonts.css">
+
+<!-- LTR -->
+<!-- RTL -->
+<link rel="stylesheet" href="/assets/bootstrap/css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="/assets/styles.css">
+</head>
+<body>
+
+	<app-root></app-root>
+
+	<script src="/assets/bootstrap/js/jquery-1.12.4.min.js"></script>
+	<script src="/assets/bootstrap/js/bootstrap.min.js"></script>
+
+	<script type="text/javascript" src="/assets/js/inline.bundle.js"></script>
+	<script type="text/javascript" src="/assets/js/polyfills.bundle.js"></script>
+	<script type="text/javascript" src="/assets/js/vendor.bundle.js"></script>
+	<script type="text/javascript" src="/assets/js/main.bundle.js"></script>
+
+	<!-- 	<form th:action="@{/logout}" method="post"> -->
+	<!-- 		<input class="btn btn-primary btn-block" type="submit" value="Sign Out" /> -->
+	<!-- 	</form> -->
+</body>
+<script type="text/javascript">
+	$(document).ready(function() {
+		var currentLang = localStorage.getItem('currentLang');
+		if (currentLang && currentLang == "ar") {
+			changeCSS('/assets/bootstrap/css/bootstrap-rtl.min.css', 2);
+			changeCSS('/assets/styles-rtl.css', 3);
+		} else {
+			changeCSS('/assets/bootstrap/css/bootstrap.min.css', 2);
+			changeCSS('/assets/styles.css', 3);
+		}
+	});
+</script>
+</html>
+
